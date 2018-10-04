@@ -10,7 +10,7 @@ public class SimpleTest {
     WordSource source = new BundleSource("wordlist");
     ArtifactGenerator generator = new PassphraseGenerator(source, rng);
     for (int i = 0; i < 10; i++) {
-      System.out.println(generator.generate(6));
+      System.out.println(generator.generate(8));
     }
   }
 }
