@@ -10,7 +10,8 @@ public class BundleSource implements WordSource {
   public BundleSource(String basename) {
     ResourceBundle bundle = ResourceBundle.getBundle(basename);
     words = new ArrayList<>(
-        bundle.keySet().stream().map((k) -> bundle.getString(k)).collect(Collectors.toList())
+        bundle.keySet().stream().map((k) -> bundle.getString(k)).filter((s -> !s.matches("^.*\\W|\\d.*$")))
+            .filter((s ->  s.length() > 3)).collect(Collectors.toList())
     );
   }
 
